@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const jsonBinRequest = axios.create({
-    baseURL: 'https://api.jsonbin.io/v3/b',
+    baseURL: process.env.REACT_JSONBIN_BASE_URL,
     headers: {
-        'X-Master-key': '$2b$10$lSIUaoE7kyKf1XX0zUB7/uOC7gZtAq9W.qmDq5chHEaXEa5doXLv6',
+        'X-Master-key': process.env.REACT_JSONBIN_KEY,
     },
 });
 
@@ -26,7 +26,9 @@ const getCountry = async (
     searchKeyWord: string
 ): Promise<{ cn: string; cc: string; name: string; code: string }[] | []> => {
     return new Promise((resolve, reject) => {
+        //bin object
         jsonBinRequest({
+            method: 'GET',
             url: '/60c7460cb274176a77e7745b',
         })
             .then(({ data }) => {
