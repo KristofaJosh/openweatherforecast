@@ -26,8 +26,9 @@ const getCountry = async (
     searchKeyWord: string
 ): Promise<{ cn: string; cc: string; name: string; code: string }[] | []> => {
     return new Promise((resolve, reject) => {
+        //bin object
         jsonBinRequest({
-            //bin object
+            method: 'GET',
             url: '/60c7460cb274176a77e7745b',
         })
             .then(({ data }) => {

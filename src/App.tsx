@@ -20,8 +20,8 @@ function App(props: any) {
             method: 'GET',
             url: '/forecast',
             params: {
-                cnt: 100,
                 q: defaultCity,
+                cnt: 100,
             },
         })
             .then(({ data }) => {
